@@ -1,0 +1,7 @@
+# coding: UTF-8
+
+[default]
+SERVICE_NAME = ibarakiuniv-auth
+PING_TARGET = google.com
+USERNAME = <YourID>
+PASSWORD = <YourPassword>
