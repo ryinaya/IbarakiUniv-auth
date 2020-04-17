@@ -30,7 +30,7 @@ def ping_os_switch():
     elif pf == 'Darwin': #Mac
         timeout, times = '-t', '-c'
     elif pf == 'Windows':
-        timeout, times = '-W', '-n'
+        timeout, times = '-w', '-n'
     return ["ping", timeout, "3", times, "1", host]
 
 def is_connected(cmd):
