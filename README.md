@@ -1,7 +1,6 @@
 # IbarakiUniv-auth
-茨城大学の学内有線LANの認証スクリプト
-**ダウンロードは[releases](https://github.com/ryinaya/IbarakiUniv-auth/releases/latest)から行ってください。**<br>
-**右上の緑のボタンではスクリプトはダウンロードできません。**
+茨城大学の学内有線LANの認証スクリプト<br>
+**ダウンロードは[releases](https://github.com/ryinaya/IbarakiUniv-auth/releases/latest)から行ってください。右上の緑のボタンではスクリプトはダウンロードできません。**
 
 ## 機能
 再起動、ネットワーク障害などで学内LANの認証情報が外れたときに、自動で認証するスクリプトです。<br>
