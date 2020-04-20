@@ -6,6 +6,6 @@ zip/
 *.manifest
 *.spec
 auth-request.log
-build
-dist
-asset
+build*
+dist*
+asset*
