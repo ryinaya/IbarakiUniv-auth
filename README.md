@@ -35,7 +35,8 @@ $ ./auth-request
 pingを行って疎通が確認できない場合に、認証フォームをサーバーに送信し、その旨をログファイルに書き込みます。<br>
 
 ### 便利なオプション
-`auth-request`の後に引数として`-n`や`-a`などを追加することで、ログファイルの生成・書き込みなど実行時の動作が変化します。<br>
+`auth-request`の後に引数として`-n`や`-a`などを追加することで、<br>
+ログファイルの生成・書き込みなど実行時の動作が変化します。<br>
 - `./auth-request -n`: ログファイルに記述しない
 - `./auth-request -a`: ログファイルにpingの成功も記述する
 - `./auth-request -c`: 実行する前にログファイルの中身を消去する
@@ -71,8 +72,9 @@ chmod 600 IbarakiUniv-auth/config.py
 ### Requirements
 - Python3
 - requests
-pipenvを使用する場合は、`pipenv install`を実行してください。<br>
-それ以外の場合はpipでインストールしてください。
+
+pipenvを使用する場合は、`pipenv install`を実行することで、環境の再現ができます。<br>
+使用しない場合はpip等でインストールしてください。
 
 ## ライセンス
 このソースコードはMITライセンスで公開しています。
