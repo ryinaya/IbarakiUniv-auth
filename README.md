@@ -19,8 +19,8 @@ pingを行って疎通が確認できない場合に、認証フォームをサ�
 
 ## ダウンロードと設定
 1. 実行ファイル形式の入ったzipを[releases](https://github.com/ryinaya/IbarakiUniv-auth/releases/latest)からダウンロードする
-2. zipファイルを展開後、IbarakiUniv-authのディレクトリごと任意の場所に配置する
-3. 配置後、config.txtの\<YourID\>と\<YourPassword\>をあなたの大学アカウントの情報に書き換える
+2. zipファイルを展開後、IbarakiUniv-authのディレクトリごと、(scpコマンドとかを使って)認証を保持させたい学内のサーバーの任意の場所に配置する
+3. 学内のサーバーに配置したら、config.txtの\<YourID\>と\<YourPassword\>をあなたの大学アカウントの情報に書き換える
 
 ## 使い方
 
