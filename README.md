@@ -1,5 +1,7 @@
 # IbarakiUniv-auth
 茨城大学の学内有線LANの認証スクリプト
+**ダウンロードは[releases](https://github.com/ryinaya/IbarakiUniv-auth/releases/latest)から行ってください。**<br>
+**右上の緑のボタンではスクリプトはダウンロードできません。**
 
 ## 機能
 再起動、ネットワーク障害などで学内LANの認証情報が外れたときに、自動で認証するスクリプトです。<br>
@@ -44,12 +46,17 @@ pingを行って疎通が確認できない場合に、認証フォームをサ�
 ### 定期的に実行する
 「定期的に認証を確認して、切れたら認証する」といったことをやりたい場合、<br>
 cron(Linux/Mac)またはタスクスケジューラ(Win)など各OSの自動実行機能を利用してください。<br>
-詳しくは各自の環境に合わせて検索してください。<br>
-以下はcron(Linux/Mac)の記述例です。(このコードのコピペでは動きません)<br>
+
+以下はcron(Linux/Mac)の記述例です。(`~/path_to/IbarakiUniv-auth`の部分を適宜書き換えてください。)<br>
 ```
-@reboot /home/example_path/IbarakiUniv-auth/auth-request -c #システム起動時にログファイルを消去して実行する
-*/60 * * * * /home/example_path/IbarakiUniv-auth/auth-request #60分ごとに実行する。
+@reboot bash -l -c "~/path_to/IbarakiUniv-auth/auth-request -c" #システム起動時にログファイルを消去して実行する
+15 * * * * bash -l -c "~/path_to/IbarakiUniv-auth/auth-request -a" #毎時15分に実行する。pingが成功した場合も記述する。
 ```
+cronの設定方法は[「cronの設定方法 - Qiita.com」](https://qiita.com/hikouki/items/e744b3a4d356d2af12cf)などを参照してください。<br>
+必ず一回は正常に動作した確認をおすすめします。（[環境変数が原因でうまく動かないこともあるので](https://www.greptips.com/posts/790/)、`bash -l -c "コマンド"`か絶対パスで記述するほうがいいと思います。）<br>
+
+Windowsの場合は[「タスクスケジューラで定期的な作業を自動化する - @IT」](https://www.atmarkit.co.jp/ait/articles/1305/31/news049.html)、[「Windowsでログオフ中でもタスクを起動させる方法 - @IT」](https://www.atmarkit.co.jp/ait/articles/1307/08/news101.html)などを参考にしてください。
+
 
 ## パスワード等の取り扱い
 パスワードが記載されてるconfig.pyは権限を600等の自分以外閲覧不可に設定することを推奨します。<br>
@@ -60,7 +67,8 @@ chmod 600 IbarakiUniv-auth/config.py
 
 ## すでに学内の目的のサーバーに接続できない場合
 このスクリプトだけではどうすることもできません。<br>
-他に認証できているサーバーがあれば、それ経由で接続できるかもしれません...
+~~他に認証できているサーバーがあれば、それ経由で接続できるかもしれません...~~<br>
+手遅れだと思われます。仕方がないので、何かのついでに学内で認証してからインストールしてください。
 
 ## なんか実行できなかった場合
 [issues](https://github.com/ryinaya/IbarakiUniv-auth/issues)タブから新しいissueを作成し報告してくれると嬉しいです。(要githubアカウント)<br>
