@@ -4,6 +4,7 @@ import subprocess
 import platform
 import datetime
 import argparse
+from pathlib import Path
 
 parser = argparse.ArgumentParser(description='Auto authentification for IbarakiUniv LAN')
 parser.add_argument('-n','--nolog', action='store_true', default=False,
@@ -14,8 +15,11 @@ parser.add_argument('-c','--clear', action='store_true', default=False,
                     help='clear auth-request.log then run')
 args = parser.parse_args()
 
+configpath = Path.cwd() / Path(__file__).parents[0] / 'config.txt'
+logpath =  Path.cwd() / Path(__file__).parents[0] / 'auth-request.log'
+
 inifile = configparser.ConfigParser()
-inifile.read('./config.txt', 'UTF-8')
+inifile.read(configpath, 'UTF-8')
 
 service = inifile.get('default','SERVICE_NAME')
 host = inifile.get('default','PING_TARGET')
@@ -46,7 +50,7 @@ def write_log(connected):
     dt_now = str(datetime.datetime.now())
     if args.clear == True: a_or_w = "w"
     else: a_or_w = "a"
-    with open("auth-request.log", a_or_w) as f:
+    with open(logpath, a_or_w) as f:
         if connected == True and args.all == True:
             f.write(dt_now+" Ping to "+host+" successed.\n")
         elif connected == False and args.nolog == False:

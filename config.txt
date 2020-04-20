@@ -2,6 +2,6 @@
 
 [default]
 SERVICE_NAME = ibarakiuniv-auth
-PING_TARGET = google.com
+PING_TARGET = ntp.ibaraki.ac.jp
 USERNAME = <YourID>
 PASSWORD = <YourPassword>
