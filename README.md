@@ -49,11 +49,13 @@ cron(Linux/Mac)またはタスクスケジューラ(Win)など各OSの自動実�
 
 以下はcron(Linux/Mac)の記述例です。(`~/path_to/IbarakiUniv-auth`の部分を適宜書き換えてください。)<br>
 ```
-@reboot bash -l -c "~/path_to/IbarakiUniv-auth/auth-request -c" #システム起動時にログファイルを消去して実行する
-15 * * * * bash -l -c "~/path_to/IbarakiUniv-auth/auth-request -a" #毎時15分に実行する。pingが成功した場合も記述する。
+@reboot cd /path_to/IbarakiUniv-auth && ./auth-request -c #システム起動時にログファイルを消去して実行する
+15 * * * * cd /path_to/IbarakiUniv-auth && ./auth-request -a #毎時15分に実行する。pingが成功した場合も記述する。
 ```
 cronの設定方法は[「cronの設定方法 - Qiita.com」](https://qiita.com/hikouki/items/e744b3a4d356d2af12cf)などを参照してください。<br>
-必ず一回は正常に動作した確認をおすすめします。（[環境変数が原因でうまく動かないこともあるので](https://www.greptips.com/posts/790/)、`bash -l -c "コマンド"`か絶対パスで記述するほうがいいと思います。）<br>
+必ず一回は正常に動作した確認をおすすめします。（[環境変数が原因でうまく動かないこともあるので](https://www.greptips.com/posts/790/)）<br>
+
+ping確認先や認証サーバへの負担を避けるため、**毎分とかの高頻度なping確認や認証はやめてください。**
 
 Windowsの場合は[「タスクスケジューラで定期的な作業を自動化する - @IT」](https://www.atmarkit.co.jp/ait/articles/1305/31/news049.html)、[「Windowsでログオフ中でもタスクを起動させる方法 - @IT」](https://www.atmarkit.co.jp/ait/articles/1307/08/news101.html)などを参考にしてください。
 
